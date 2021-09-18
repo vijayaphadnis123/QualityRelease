@@ -29,8 +29,7 @@ stages:
           command: 'init'
           workingDirectory: './terraform'
           allowTelemetryCollection: true
-     -task:  TerraformCLI@0
-      disp 
+     
      -task:  TerraformCLI@0
       displayName: Terraform plan
        inputs:
