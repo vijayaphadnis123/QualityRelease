@@ -2,7 +2,7 @@ name: Azure Pipelines
 variables:
   python.version: '3.7.6'
   webAppName: 'QualityRelease-AppService'
-  azureServiceConnectionId: ''
+  azureServiceConnectionId: 'github.com_vijayaphadnis123'
 stages:
 - stage: Build
   jobs:
