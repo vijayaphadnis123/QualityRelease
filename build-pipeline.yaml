@@ -43,7 +43,7 @@ stages:
           backendAzureRmResourceGroupName: 'MyResGroup1'
           backendAzureRmContainerName: 'tfstate'
           backendAzureRmStorageAccountName: 'udaqualityrelease'
-          backendServiceArm: 'Azure Subscription 1()'
+          backendServiceArm: 'Azure Subscription 1(76b1e36a-6202-4055-914a-1618f6c3575e)'
           backendAzureRmKey: 'prod.terraform.tfstate'
           workingDirectory: './terraform'
           allowTelemetryCollection: true
