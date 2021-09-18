@@ -18,12 +18,12 @@ stages:
     #  sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDN0ml7qOhwQHzFeJYP5s98F/pTJwLQs8fGgiWjWmo42nzOzIOK+25sf+zEc/FGBjQlJB25j8WKu87n8thhr8p8YXjTQi0zjs1jfW8L67ZGujE/ohMfcDqO6bp+ehwBg4BVHJnP43tyrVvOVYtdp0YyHzPuP18lvQinbc5KlCoTM0xsQgKXV8dYRgk9OdG5WvzvTHVR1isFVGL4gUgpFC1KVX4jVWnqfUOtCtEob1sJ9nww8n0OYPpaxrYs8kxLF7/92MhuWuIab+t5rGhxpPsXpZ4l0Kooif5OLGyYtxc9Wfwz2LJLg/caCPDV64KNG8icxYRM39wGszPI3OGTHHmXRpVM4fB8Ep68JJvGw/NplDJQBGFvCeiUSJWc3VVbd6OY2jyYYET4w1KUtEebunEa8k15Fc8alWYrmCdl3OzpZFgh51A/XGWHO3kZ0nevBVaFEFmGlGIywLYwsXm2rkQ8DpXepc0eXUVwo3h9IIuKrP2t9no0L2AjCZRzYaF+ISc= vijay@LAPTOP-P2S8IFB7'
     #  sshKeySecureFile: 'id_rsa'
  
-    # - task: TerraformInstaller@0
-    #   displayName: 'Use Terraform latest'
-     #  inputs: 
-     #    terraformVersion: 1.0.0
+     - task: TerraformInstaller
+       displayName: 'Use Terraform latest'
+       inputs: 
+         terraformVersion: latest
      
-     - task: TerraformCLI@0
+     - task: TerraformCLI
        displayName: Terraform Initialize
        inputs:
           provider: 'azurerm'
@@ -36,13 +36,13 @@ stages:
           backendAzureRmKey: 'prod.terraform.tfstate'  
           allowTelemetryCollection: true
      
-     - task:  TerraformCLI@0
+     - task:  TerraformCLI
        displayName: Terraform plan
        inputs:
           command: 'plan'
           workingDirectory: './terraform'
       
-     - task:  TerraformCLI@0
+     - task:  TerraformCLI
        displayName: Terraform Apply
        inputs:
           command: 'apply'
