@@ -26,26 +26,28 @@ stages:
      - task: TerraformCLI@0
        displayName: Terraform Initialize
        inputs:
+          provider: 'azurerm'
           command: 'init'
           workingDirectory: './terraform'
+          backendServiceArm: 'Azure Subscription 1(76b1e36a-6202-4055-914a-1618f6c3575e)'
+          backendAzureRmResourceGroupName: 'MyResGroup1'
+          backendAzureRmStorageAccountName: 'udaqualityrelease'
+          backendAzureRmContainerName: 'tfstate'
+          backendAzureRmKey: 'prod.terraform.tfstate'  
           allowTelemetryCollection: true
      
      - task:  TerraformCLI@0
        displayName: Terraform plan
        inputs:
           command: 'plan'
+          workingDirectory: './terraform'
       
      - task:  TerraformCLI@0
        displayName: Terraform Apply
        inputs:
           command: 'apply'
-          backendType: azurerm
-          backendAzureRmResourceGroupName: 'MyResGroup1'
-          backendAzureRmContainerName: 'tfstate'
-          backendAzureRmStorageAccountName: 'udaqualityrelease'
-          backendServiceArm: 'Azure Subscription 1(76b1e36a-6202-4055-914a-1618f6c3575e)'
-          backendAzureRmKey: 'prod.terraform.tfstate'
           workingDirectory: './terraform'
+          backendType: azurerm
           allowTelemetryCollection: true
 
  
