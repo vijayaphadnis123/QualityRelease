@@ -34,7 +34,8 @@ stages:
       displayName: Terraform plan
        inputs:
           command: 'plan'
-
+      
+     - task:  TerraformCLI@0
        displayName: Terraform Apply
        inputs:
           command: 'apply'
